@@ -13,8 +13,8 @@ Answer: <input type="text" id="answer" name="answer" value="" [(ngModel)]="answe
 <br>
 Score: {{score}}
 
-<div *ngIf="isCorrect">Correct</div>
-<!-- <ng-template #elseBlock>Wrong</ng-template> -->
+<div *ngIf="this.isCorrect==true">Correct!</div>
+<div *ngIf="this.isCorrect==false">Wrong!</div>
 
 <br><BR><BR>
   {{questionInfo?.answer | json}}
