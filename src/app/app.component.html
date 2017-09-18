@@ -6,10 +6,13 @@ Question: {{questionInfo?.question | json}}
 <br>
 Value: {{questionInfo?.value | json}}
 <br>
-<form (ngSubmit)="onSubmit()" #answerForm="ngForm">
-Answer: <input type="text" id="answer" name="answer" value="">
-<button type="submit" class="btn btn-default" [disabled]="!answerForm.form.valid">Submit</button>
+<form #answerForm="ngForm">
+Answer: <input type="text" id="answer" name="answer" value="" [(ngModel)]="answer">
+<button class="btn btn-default" (click)="onSubmit()">Submit</button>
 </form>
+
+<div *ngIf="isCorrect"; else >Correct</div>
+<ng-template #elseBlock>Wrong</ng-template>
 
 <br><BR><BR>
   {{questionInfo?.answer | json}}

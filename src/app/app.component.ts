@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
 
   questionInfo;
   answer;
+  isCorrect: boolean;
 
   constructor(private jeopardyService: JeopardyService){}
     
@@ -28,10 +29,11 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit(){
-    if(this.form.value == this.questionInfo.answer){
-      return true;
+    if(this.answer.toLowerCase() == this.questionInfo.answer.toLowerCase()){
+      return this.isCorrect = true;
+    } else {
+    return this.isCorrect = false;
     }
-    return false;
   }
 
 }
