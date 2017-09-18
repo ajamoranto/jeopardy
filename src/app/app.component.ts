@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   questionInfo;
   answer;
   isCorrect: boolean;
+  score: number = 0;
 
   constructor(private jeopardyService: JeopardyService){}
     
@@ -30,6 +31,8 @@ export class AppComponent implements OnInit {
 
   onSubmit(){
     if(this.answer.toLowerCase() == this.questionInfo.answer.toLowerCase()){
+      this.score += this.questionInfo.value;
+      this.getDataFromService();
       return this.isCorrect = true;
     } else {
     return this.isCorrect = false;

@@ -10,9 +10,11 @@ Value: {{questionInfo?.value | json}}
 Answer: <input type="text" id="answer" name="answer" value="" [(ngModel)]="answer">
 <button class="btn btn-default" (click)="onSubmit()">Submit</button>
 </form>
+<br>
+Score: {{score}}
 
-<div *ngIf="isCorrect"; else >Correct</div>
-<ng-template #elseBlock>Wrong</ng-template>
+<div *ngIf="isCorrect">Correct</div>
+<!-- <ng-template #elseBlock>Wrong</ng-template> -->
 
 <br><BR><BR>
   {{questionInfo?.answer | json}}
