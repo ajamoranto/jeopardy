@@ -13,13 +13,8 @@ Answer: <input type="text" id="answer" name="answer" value="" [(ngModel)]="answe
 <br>
 Score: {{score}}
 
-<<<<<<< HEAD
-=======
 <div *ngIf="this.isCorrect==true">Correct!</div>
 <div *ngIf="this.isCorrect==false">Wrong!</div>
->>>>>>> 7c21f52b1bcf04806cea71d036c1ce884c769e9b
 
-<div *ngIf="this.isCorrect==true">Correct!</div>
-<div *ngIf="this.isCorrect==false">Wrong!</div>
 <br><BR><BR>
   {{questionInfo?.answer | json}}
