@@ -32,9 +32,12 @@ export class AppComponent implements OnInit {
   onSubmit(){
     if(this.answer.toLowerCase() == this.questionInfo.answer.toLowerCase()){
       this.score += this.questionInfo.value;
+      this.answer = "";
       this.getDataFromService();
       return this.isCorrect = true;
     } else {
+      this.answer = "";
+      this.getDataFromService();
     return this.isCorrect = false;
     }
   }
