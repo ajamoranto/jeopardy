@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
   title = 'app';
 
   questionInfo;
+  answer;
 
   constructor(private jeopardyService: JeopardyService){}
     
@@ -25,4 +26,12 @@ export class AppComponent implements OnInit {
   ngOnInit(){
     this.getDataFromService()
   }
+
+  onSubmit(){
+    if(this.form.value == this.questionInfo.answer){
+      return true;
+    }
+    return false;
+  }
+
 }
