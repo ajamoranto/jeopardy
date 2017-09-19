@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { JeopardyService } from '../jeopardy.service';
 
 @Component({
@@ -8,6 +8,8 @@ import { JeopardyService } from '../jeopardy.service';
 })
 export class AnswerComponent implements OnInit {
 
+  @Output()
+  updateQuestion = new EventEmitter<any>();
 
   @Input() questionInfo;
   answerValue;
@@ -29,11 +31,11 @@ export class AnswerComponent implements OnInit {
     if(this.answerValue.toLowerCase() == this.questionInfo.answer.toLowerCase()){
       this.score += this.questionInfo.value;
       this.answerValue = "";
-      this.getDataFromService();
+      this.updateQuestion.emit(this.getDataFromService());
       return this.isCorrect = true;
     } else {
       this.answerValue = "";
-      this.getDataFromService();
+      this.updateQuestion.emit(this.getDataFromService());
     return this.isCorrect = false;
     }
   }

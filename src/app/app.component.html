@@ -8,4 +8,4 @@ Value: {{questionInfo?.value | json}}
 <br>
 
 
-  <app-answer #answerPage [questionInfo]="questionInfo"></app-answer>
+  <app-answer #answerPage (updateQuestion)="getDataFromService()" [questionInfo]="questionInfo"></app-answer>
