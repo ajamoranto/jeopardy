@@ -1,11 +1,15 @@
 
-
-Category: {{questionInfo?.category.title | json}}
-<br>
+<div class="jumbotron">
+<h2>Category: {{questionInfo?.category.title | json}}
+<br><br>
 Question: {{questionInfo?.question | json}}
+</h2>
 <br>
+<h3>
 Value: {{questionInfo?.value | json}}
+</h3>
 <br>
+</div>
 
 
   <app-answer #answerPage (updateQuestion)="getDataFromService()" [questionInfo]="questionInfo"></app-answer>

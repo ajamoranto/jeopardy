@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+.jumbotron {
+    background-color: #060ce9;
+    color: white;
+    text-shadow: 2px 2px black;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+}
+
+h2, h3 {
+    font-weight: bolder !important
+}
