@@ -6,15 +6,6 @@ Question: {{questionInfo?.question | json}}
 <br>
 Value: {{questionInfo?.value | json}}
 <br>
-<form #answerForm="ngForm">
-Answer: <input type="text" id="answer" name="answer" value="" [(ngModel)]="answer">
-<button class="btn btn-default" (click)="onSubmit()">Submit</button>
-</form>
-<br>
-Score: {{score}}
 
-<div *ngIf="this.isCorrect==true">Correct!</div>
-<div *ngIf="this.isCorrect==false">Wrong!</div>
 
-<br><BR><BR>
-  {{questionInfo?.answer | json}}
+  <app-answer #answerPage [questionInfo]="questionInfo"></app-answer>

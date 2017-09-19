@@ -8,14 +8,14 @@ import { JeopardyService } from './jeopardy.service';
 })
 export class AppComponent implements OnInit {
   title = 'app';
+  
 
-  questionInfo;
-  answer;
-  isCorrect: boolean;
-  score: number = 0;
+ questionInfo;
+ 
 
   constructor(private jeopardyService: JeopardyService){}
-    
+   
+  
     getDataFromService(){
       this.jeopardyService.getQuestionInfo()
       .subscribe(
@@ -25,21 +25,12 @@ export class AppComponent implements OnInit {
       )
     }
 
+
+
   ngOnInit(){
     this.getDataFromService()
   }
 
-  onSubmit(){
-    if(this.answer.toLowerCase() == this.questionInfo.answer.toLowerCase()){
-      this.score += this.questionInfo.value;
-      this.answer = "";
-      this.getDataFromService();
-      return this.isCorrect = true;
-    } else {
-      this.answer = "";
-      this.getDataFromService();
-    return this.isCorrect = false;
-    }
-  }
+
 
 }
