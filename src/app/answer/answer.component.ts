@@ -15,27 +15,19 @@ export class AnswerComponent implements OnInit {
   answerValue=null;
   isCorrect: boolean;
   score=0;
-  constructor(private jeopardyService: JeopardyService){}
+
   ngOnInit() {
   }
 
-  getDataFromService(){
-      this.jeopardyService.getQuestionInfo()
-      .subscribe(
-        questionInfo => {
-          this.questionInfo = questionInfo[0];
-        }
-      )
-    }
   onSubmit(){
     if(this.answerValue!=null && (this.answerValue.toLowerCase() == this.questionInfo.answer.toLowerCase())){
       this.score += this.questionInfo.value;
       this.answerValue = "";
-      this.updateQuestion.emit(this.getDataFromService());
+      this.updateQuestion.emit();
       return this.isCorrect = true;
     } else {
       this.answerValue = "";
-      this.updateQuestion.emit(this.getDataFromService());
+      this.updateQuestion.emit();
     return this.isCorrect = false;
     }
   }
