@@ -12,7 +12,7 @@ export class AnswerComponent implements OnInit {
   updateQuestion = new EventEmitter<any>();
 
   @Input() questionInfo;
-  answerValue;
+  answerValue=null;
   isCorrect: boolean;
   score=0;
   constructor(private jeopardyService: JeopardyService){}
@@ -28,7 +28,7 @@ export class AnswerComponent implements OnInit {
       )
     }
   onSubmit(){
-    if(this.answerValue.toLowerCase() == this.questionInfo.answer.toLowerCase()){
+    if(this.answerValue!=null && (this.answerValue.toLowerCase() == this.questionInfo.answer.toLowerCase())){
       this.score += this.questionInfo.value;
       this.answerValue = "";
       this.updateQuestion.emit(this.getDataFromService());
